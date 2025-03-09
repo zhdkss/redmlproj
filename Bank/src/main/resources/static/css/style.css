@@ -1,0 +1,100 @@
+/* Общие стили */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #eee; /* Светло-серый фон */
+    font-family: Arial, sans-serif;
+}
+
+/* Центровка содержимого */
+.login-wrapper {
+    display: flex;
+    align-items: center;      /* Центровка по вертикали */
+    justify-content: center;  /* Центровка по горизонтали */
+    min-height: 100vh;        /* Высота экрана */
+}
+
+/* Белый блок */
+.login-box {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    width: 350px;
+    max-width: 80%;
+    text-align: center;
+}
+
+/* Заголовок */
+.login-box h2 {
+    margin-bottom: 25px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Поля формы */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Подписи слева */
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85em;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9em;
+    box-sizing: border-box;
+}
+
+/* Дополнительные опции */
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 0.85em;
+}
+
+.options .forgot {
+    color: #888;
+    text-decoration: none;
+}
+
+.options .forgot:hover {
+    text-decoration: underline;
+}
+
+/* Кнопка */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+/* Сообщение об ошибке */
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    text-align: left;
+}
