@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Управление аккаунтами</title>
+    <link rel="stylesheet" th:href="@{/css/accounts.css}" />
+</head>
+<body>
+<div class="container">
+    <h1>Аккаунты</h1>
+    <div th:if="${error}" class="alert error" th:text="${error}"></div>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Номер аккаунта</th>
+            <th>Баланс</th>
+            <th>Пользователь</th>
+            <th>Действие</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="account : ${accounts}">
+            <td th:text="${account.id}">1</td>
+            <td th:text="${account.accountNumber}">123456</td>
+            <td th:text="${account.balance}">1000.00</td>
+            <td th:text="${account.user.username}">Username</td>
+            <td>
+                <form th:action="@{'/accounts/delete/' + ${account.id}}" method="post" onsubmit="return confirm('Вы действительно хотите удалить аккаунт?');">
+                    <button type="submit">Удалить</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <h2>Создать новый аккаунт</h2>
+    <form th:action="@{/accounts}" th:object="${account}" method="post">
+        <label>Номер аккаунта:
+            <input type="text" th:field="*{accountNumber}" required/>
+        </label>
+        <br/>
+        <label>Баланс:
+            <input type="number" step="0.01" th:field="*{balance}" required/>
+        </label>
+        <br/>
+        <button type="submit">Создать аккаунт</button>
+    </form>
+    <button type="button" onclick="window.history.back();">Назад</button>
+</div>
+</body>
+</html>

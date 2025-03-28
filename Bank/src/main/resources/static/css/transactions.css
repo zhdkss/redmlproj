@@ -1,0 +1,110 @@
+/* Общие стили */
+body {
+    background: #f4f7f8;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Контейнер страницы */
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок */
+header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #263238;
+}
+
+/* Стили для сообщений об ошибках */
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Таблица транзакций */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+table thead {
+    background-color: #f2f2f2;
+}
+
+/* Секция перевода */
+.transfer-section {
+    background: #e0f7fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.transfer-section h2 {
+    margin-top: 0;
+    color: #00796b;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #00796b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn:hover {
+    background-color: #004d40;
+}
+
+.back-button {
+    text-align: center;
+    margin-top: 20px;
+}
+.back-button button {
+    padding: 10px 20px;
+    background-color: #757575;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.back-button button:hover {
+    background-color: #424242;
+}

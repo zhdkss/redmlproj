@@ -1,0 +1,78 @@
+/* accounts.css */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Стили для таблицы аккаунтов */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table thead tr {
+    background-color: #f5f5f5;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Стили для формы создания аккаунта */
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #263238;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #455a64;
+}
+
+/* Стили для сообщений об ошибках */
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    text-align: left;
+}

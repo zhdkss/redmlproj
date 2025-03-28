@@ -1,5 +1,4 @@
 package com.bank.bankmanagement.config;
-
 import com.bank.bankmanagement.repository.UserRepository;
 import com.bank.bankmanagement.service.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
@@ -23,7 +22,6 @@ public class SecurityConfig {
     private final UserRepository userRepository;
     private final CustomUserDetailsService customUserDetailsService;
 
-    // Инжектим и репозиторий, и сервис
     public SecurityConfig(UserRepository userRepository, CustomUserDetailsService customUserDetailsService) {
         this.userRepository = userRepository;
         this.customUserDetailsService = customUserDetailsService;
@@ -31,12 +29,10 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(); // Используем BCrypt для хеширования паролей
+        return new BCryptPasswordEncoder();
     }
 
-    /**
-     * Настраиваем AuthenticationManager, используя наш CustomUserDetailsService
-     */
+
     @Bean
     public AuthenticationManager authenticationManager() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -45,14 +41,6 @@ public class SecurityConfig {
         return new ProviderManager(List.of(authProvider));
     }
 
-    /**
-     * Основная конфигурация безопасности:
-     * - Отключаем CSRF (если API используется внешними клиентами)
-     * - Разрешаем доступ к /register, /css/**, /images/**
-     * - Остальные URL требуют авторизации
-     * - Настраиваем форму логина и logout
-     * - Добавляем remember-me и страницу /access-denied
-     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -62,7 +50,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/login")                 // Кастомная страница логина
+                        .loginPage("/login")
                         .defaultSuccessUrl("/dashboard", true)  // После логина → /dashboard
                         .permitAll()
                 )

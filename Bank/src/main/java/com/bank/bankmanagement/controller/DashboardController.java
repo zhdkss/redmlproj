@@ -16,6 +16,6 @@ public class DashboardController {
         } else {
             model.addAttribute("username", "Guest");
         }
-        return "dashboard";
+        return "dashboard"; // шаблон: dashboard.html
     }
 }

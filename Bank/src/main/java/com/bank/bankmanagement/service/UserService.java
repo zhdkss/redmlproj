@@ -3,11 +3,11 @@ package com.bank.bankmanagement.service;
 import com.bank.bankmanagement.model.User;
 import com.bank.bankmanagement.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 
 @Service
 public class UserService {
@@ -29,7 +29,11 @@ public class UserService {
     }
 
     public User createUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword())); // ✅ Хешируем пароль
+        // Проверяем, существует ли пользователь с таким email
+        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
+            throw new DataIntegrityViolationException("Пользователь с таким email уже существует");
+        }
+        user.setPassword(passwordEncoder.encode(user.getPassword())); // Хеширование пароля
         return userRepository.save(user);
     }
 
@@ -37,6 +41,7 @@ public class UserService {
         userRepository.deleteById(id);
         return false;
     }
+
     public User updateUser(Long id, User updatedUser) {
         return userRepository.findById(id).map(user -> {
             user.setUsername(updatedUser.getUsername());
@@ -47,7 +52,4 @@ public class UserService {
             return userRepository.save(user);
         }).orElseThrow(() -> new RuntimeException("User not found"));
     }
-
-
 }
-

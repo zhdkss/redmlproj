@@ -2,61 +2,54 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard</title>
-  <!-- Подключаем CSS -->
+  <title>Главная</title>
   <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
 </head>
 <body>
 <div class="dashboard-container">
-  <!-- Левое боковое меню -->
   <aside class="sidebar">
     <div class="sidebar-header">
-      <img src="/images/user-icon.png" alt="User icon" class="user-icon" />
-      <h2>Hello, <span th:text="${username}">Name</span>!</h2>
+      <!-- Заменили user-icon на profile.png -->
+      <img src="/css/images/TOK.jpg" alt="Profile" class="user-icon" />
+
+      <h2 th:text="'Здравствуйте, ' + ${username}">Здравствуйте, Пользователь!</h2>
     </div>
     <nav class="menu">
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Lorem</a></li>
-        <li><a href="#">Ipsum</a></li>
-        <li><a href="#">Elit</a></li>
-        <li><a th:href="@{/logout}">Logout</a></li>
+        <li><a th:href="@{/dashboard}">Главная</a></li>
+        <li><a th:href="@{/users}">Пользователи</a></li>
+        <li><a th:href="@{/accounts}">Аккаунты</a></li>
+        <li><a th:href="@{/transactions}">Транзакции</a></li>
+        <li><a th:href="@{/logout}">Выход</a></li>
       </ul>
     </nav>
   </aside>
-
-  <!-- Основной контент -->
   <main class="main-content">
     <header class="main-header">
-      <h1>User Panel</h1>
-      <p>Пример простой панели пользователя</p>
+      <h1>Главная</h1>
     </header>
-
-    <!-- Блоки статистики -->
     <section class="stats">
       <div class="card">
         <h2>28%</h2>
-        <p>Progress</p>
+        <p>Прогресс</p>
       </div>
       <div class="card">
         <h2>80%</h2>
-        <p>Another Stats</p>
+        <p>Статистика</p>
       </div>
       <div class="card">
         <h2>1000₸</h2>
-        <p>Balance</p>
+        <p>Баланс</p>
       </div>
     </section>
-
-    <!-- Графики/диаграммы (заглушки) -->
     <section class="charts">
       <div class="chart">
-        <h2>Chart 1</h2>
-        <img src="/images/chart1.png" alt="Chart 1" />
+        <h2>Карта 1</h2>
+        <img src="/css/images/1з.jpg" alt="Карта 1" />
       </div>
       <div class="chart">
-        <h2>Chart 2</h2>
-        <img src="/images/chart2.png" alt="Chart 2" />
+        <h2>Карта 2</h2>
+        <img src="/css/images/3з.jpg" alt="Карта 2" />
       </div>
     </section>
   </main>

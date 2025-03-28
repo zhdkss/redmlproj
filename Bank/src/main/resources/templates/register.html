@@ -5,16 +5,11 @@
   <title>Registration Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" th:href="@{/css/style.css}" />
-
 </head>
 <body>
 <div class="login-wrapper">
   <div class="login-box">
     <h2>CREATE AN ACCOUNT</h2>
-
-    <!-- Если нужно выводить ошибки валидации, можно вставить блоки тут -->
-
-    <!-- Форма привязана к User (через th:object="${user}") -->
     <form th:action="@{/register}" th:object="${user}" method="post">
       <div class="form-group">
         <label for="username">USERNAME</label>
@@ -31,8 +26,6 @@
 
       <button type="submit" class="btn">Register</button>
     </form>
-
-    <!-- Ссылка на логин -->
     <p style="margin-top: 10px; text-align: center;">
       Уже есть аккаунт? <a th:href="@{/login}">Войти</a>
     </p>

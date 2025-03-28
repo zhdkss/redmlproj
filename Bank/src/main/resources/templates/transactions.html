@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Транзакции</title>
+    <link rel="stylesheet" th:href="@{/css/transactions.css}" />
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Транзакции</h1>
+    </header>
+
+    <!-- Вывод ошибки, если она есть -->
+    <div th:if="${error}" class="alert error" th:text="${error}">Счет отправителя не найден</div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>От аккаунта</th>
+            <th>К аккаунту</th>
+            <th>Сумма</th>
+            <th>Время</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="transaction : ${transactions}">
+            <td th:text="${transaction.id}">1</td>
+            <td th:text="${transaction.fromAccount.accountNumber}">123456</td>
+            <td th:text="${transaction.toAccount.accountNumber}">654321</td>
+            <td th:text="${transaction.amount}">100.00</td>
+            <td th:text="${transaction.timestamp}">2025-03-26T12:00:00</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <section class="transfer-section">
+        <h2>Выполнить перевод</h2>
+        <form th:action="@{/transactions/transfer}" method="post">
+            <div class="form-group">
+                <label>От аккаунта (ID):</label>
+                <input type="text" name="fromAccountId" required />
+            </div>
+            <div class="form-group">
+                <label>К аккаунту (ID):</label>
+                <input type="text" name="toAccountId" required />
+            </div>
+            <div class="form-group">
+                <label>Сумма:</label>
+                <input type="number" step="0.01" name="amount" required />
+            </div>
+            <button type="submit" class="btn">Перевести</button>
+        </form>
+    </section>
+
+    <div class="back-button">
+        <button type="button" onclick="window.history.back();">Назад</button>
+    </div>
+</div>
+</body>
+</html>
